@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Barrage</title>
+    <link rel="stylesheet" type="text/css" href="examples_style.css">
+ </head>
+
+ <body>
+
+  <h1 class="header">
+    <span class="title">Barrage.js</span>
+    <span class="subtitle">--A User-friendly Tool for Designing WebApps</span>
+  </h1>
+
+  <p class="description">
+    <span class="description__title">Hi, this is the library for creating "Barrage".</span>
+  </p>
+
+  <div class="comment__box">
+    <div class="comment__wrapper"></div>
+  </div>
+
+  
+  <div class="message__box">
+    <input type="text" class="input__text" placeholder="write your comment here">
+    <button class="button but__style4" id="button-2">
+      <div id="slide"></div>
+      <span>Submit</span>
+    </button>
+  </div>
+
+  <div class="navigation__bar">
+    <button class="intro__btn button but__style1" id="button-5">
+      <div id="translate"></div>
+      <span>Intro</span>
+    </button>
+    <button class="example__btn button but__style2" id="button-5">
+      <div id="translate"></div>
+      <span>Examples</span>
+    </button>
+    <button class="tool__btn button but__style3__complete" id="button-5">
+      <span>Tool</span>
+    </button>
+    <button class="api__btn button but__style4" id="button-5">
+      <div id="translate"></div>
+      <span>APIs</span>
+    </button>
+  </div>
+
+
+
+  <div class="info__table">
+    <div class="info__row">
+      <span class="displayRegion info__cell subtitle__font"></span>
+      <input type="text" class="commentHei input info__cell" placeholder="com height">
+      <input type="text" class="commentWid input info__cell" placeholder="com width">
+      <button class="fixed__com__btn info__cell">change</button>
+      <div class="info__cell">
+        <div class="fcom__noti__btn noti__btn">i</div>
+        <span class="popuptext fcom__noti">If you want to change comment height or width, you need to terminate your current barrage first. Click "change" to restart the barrage.</span>
+      </div>
+    </div>
+    <div class="info__row">
+      <span class="comment info__cell subtitle__font"></span><input type="text" class="commentSiz input info__cell" placeholder="size"><input type="text" class="commentCol input info__cell" placeholder="color">
+      <button class="com__btn info__cell">change</button>
+      <div class="info__cell">
+        <div class="comment__noti__btn noti__btn">i</div>
+        <span class="popuptext comment__noti">The comment size and color here is customized for all comment texts in Barrage. To change size or color for a spefic comment, please see example 2 on "Examples".</span>
+      </div>
+    </div>
+    <div class="info__row">
+      <span class="poolNum info__cell subtitle__font"></span><input type="text" class="pool input info__cell" placeholder="poolNum">
+      <button class="pool__btn info__cell">change</button>
+      <div class="info__cell">
+        <div class="pool__noti__btn noti__btn">i</div>
+        <span class="popuptext pool__noti">"Pool Number" is the maximum number of comments in one row of Barrage.</span>
+      </div>
+    </div>
+    <div class="info__row">
+      <span class="channelNum info__cell subtitle__font"></span><input type="text" class="channel input info__cell" placeholder="channelNum">
+      <button class="channel__btn info__cell">change</button>
+      <div class="info__cell">
+        <div class="channel__noti__btn noti__btn">i</div>
+        <span class="popuptext channel__noti">"Channel Number" is the maximum number of rows of your Barrage.</span>
+      </div>
+    </div>
+    <div class="info__row">
+      <span class="sentDelay info__cell subtitle__font"></span><input type="text" class="sentDel input info__cell" placeholder="sentDelay">
+      <button class="sentDel__btn info__cell">change</button>
+      <div class="info__cell">
+        <div class="sentDel__noti__btn noti__btn">i</div>
+        <span class="popuptext sentDel__noti">"Sent Delay Number" is a factor you want to delay your comment to be sent out.</span>
+      </div>
+    </div>
+    <div class="info__row">
+      <span class="sentSpeed info__cell subtitle__font"></span><input type="text" class="sentSpe input info__cell" placeholder="sentSpeed">
+      <button class="sentSpe__btn info__cell">change</button>
+      <div class="info__cell">
+        <div class="sentSpe__noti__btn noti__btn">i</div>
+        <span class="popuptext sentSpe__noti">"Sent Speend Number" is number of seconds you want to your comment to complete the transition on your display region.</span>
+      </div>
+    </div>
+    <div class="info__row">
+      <span class="direction info__cell subtitle__font"></span>
+      <select class="ani info__cell">
+        <option value="linear">linear</option>
+        <option value="pop-in">pop-in</option>
+        <option value="quadratic">quadratic</option>
+        <option value="ease-in-quart">ease-in-quart</option>
+        <option value="ease-in-cubic">ease-in-cubic</option>
+      </select>
+
+      <select class="dir info__cell">
+        <option value="right">right</option>
+        <option value="bottom">bottom</option>
+        <option value="top">top</option>
+        <option value="left">left</option>
+      </select>
+
+      <select class="rand info__cell">
+        <option value="false">no</option>
+        <option value="true">yes</option>
+      </select>
+
+      <button class="dir__btn info__cell ">change</button>
+      <div class="info__cell">
+        <div class="dir__noti__btn noti__btn">i</div>
+        <span class="popuptext dir__noti">If you want to change direction or animation, you need to terminate your current barrage first. Click "change" to restart the barrage.</span>
+      </div>
+    </div>
+    <div class="info__row">
+      <span class="recur info__cell subtitle__font"></span>
+      <button class="recur__btn info__cell">change</button>
+      <div class="info__cell">
+        <div class="recur__noti__btn noti__btn">i</div>
+        <span class="popuptext recur__noti">"Recurrence Status" is whether you want your comment to be sent repeatedly, the barrage only sent a comment once if "recurStatus" is "false".</span>
+      </div>
+    </div>
+    <div class="info__row">
+      <span class="comHov info__cell subtitle__font"></span>
+      <button class="comHov__btn info__cell">change</button>
+      <div class="info__cell">
+        <div class="comHov__noti__btn noti__btn">i</div>
+        <span class="popuptext comHov__noti">Adding hover effect to comment nodes. If you want to change comment hover effect, you need to terminate your current barrage first. Click "change" to restart the barrage.</span>
+      </div>
+    </div>
+    <div class="info__row subtitle__font">
+      <span class="info__cell">---------------------------------------------------------------------------</span>
+    </div>
+    <div class="info__row">
+      <span class="info__cell subtitle__font">Costomized Comment Node:</span>
+    </div>
+    <div class="info__row">
+      <div class="example cosCom__wrapper info__cell">
+        <input type="text" class="cosCom__input" placeholder="write your comment here">
+        <span class="example__text">Sample Text here</span>
+      </div>
+      <input type="text" class="cosComColBac long__input info__cell" placeholder="backgroundColor">
+      <input type="text" class="cosComColCom long__input info__cell" placeholder="commentColor">
+      <button class="cosComCol__btn info__cell">change</button>
+      <button class="cosCom__btn info__cell">submit</button>
+      <div class="info__cell">
+        <div class="comn__noti__btn noti__btn">i</div>
+        <span class="popuptext comn__noti">Here is one example for you to play around with sending "comment node".</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright">
+    Designed by <span>Jiakai Shi</span> @ 2020
+  </div>
+
+  <script type="text/javascript" src="Barrage.js"></script>
+  <script defer type="text/javascript" src="tool.js"></script>
+ </body>
+</html>

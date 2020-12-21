@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Barrage</title>
+    <link rel="stylesheet" type="text/css" href="examples_style.css">
+ </head>
+
+ <body>
+
+  <h1 class="header">
+    <span class="title">Barrage.js</span>
+    <span class="subtitle">--A User-friendly Tool for Designing WebApps</span>
+  </h1>
+
+  <p class="description">
+    <span class="description__title">Hi, this is the library for creating "Barrage".</span>
+  </p>
+
+  <div class="comment__box">
+    <div class="comment__wrapper"></div>
+  </div>
+
+  
+  <div class="message__box">
+    <input type="text" class="input__text" placeholder="write your comment here">
+    <button class="button but__style4" id="button-2">
+      <div id="slide"></div>
+      <span>Submit</span>
+    </button>
+  </div>
+
+  <div class="navigation__bar">
+    <button class="intro__btn button but__style1" id="button-5">
+      <div id="translate"></div>
+      <span>Intro</span>
+    </button>
+    <button class="example__btn button but__style2__complete" id="button-5">
+      <span>Examples</span>
+    </button>
+    <button class="tool__btn button but__style3" id="button-5">
+      <div id="translate"></div>
+      <span>Tool</span>
+    </button>
+    <button class="api__btn button but__style4" id="button-5">
+      <div id="translate"></div>
+      <span>APIs</span>
+    </button>
+  </div>
+
+  <div class="description__content examples__content__box">
+    <span class="examples__title">Examples</span>
+    <span class="examples__subtitle">Basic barrage animation</span>
+    <div class="example1__content">
+      <span class="examples__content">Basic barrage animation with comment texts.</span>
+      <div class="examples__box">
+        <div class="example__1"></div>
+      </div>
+  
+      <div class="examples__bar">
+        <button class="example1__js__btn button but__style1" id="button-5">
+          <div id="translate"></div>
+          <span>JS</span>
+        </button>
+        <button class="example1__html__btn button but__style2" id="button-5">
+          <div id="translate"></div>
+          <span>HTML</span>
+        </button>
+        <button class="example1__css__btn button but__style3" id="button-5">
+          <div id="translate"></div>
+          <span>CSS</span>
+        </button>
+      </div>
+  
+      <pre class="examples__box example1__js">
+        <code>
+  var displayRegion = document.querySelector('.example__1');
+  displayRegion.style.height = '200px';
+  displayRegion.style.width = '800px';
+
+  var myBarrageStructure = {
+    poolNum: 5,
+    channelNum: 10,
+    sentDelay: 2,
+    recurrence: {
+      recur: true,
+      delay: 7
+    },
+    comment: {
+      height: 30,
+      width: 100,
+      size: 18,
+      color: 'black',
+      hover: false
+    },
+    animation: {
+      ani: null,
+      dir: null,
+      random: false
+    }
+  }
+  
+  var barrage = new Barrage(displayRegion, myBarrageStructure)
+  barrage.addCommentText('CSC309 is very fun!');
+  barrage.addCommentText('CSC309 is not fun!');
+  barrage.addCommentText('CSC309 is interesting!');
+  barrage.addCommentText('CSC309 is awful!');
+        </code>
+      </pre>
+  
+      <pre class="examples__box example1__html hidden">
+        <code> 
+  &lt;div class="example__1"&gt;&lt;/div&gt;
+        </code>
+      </pre>
+  
+      <pre class="examples__box example1__css hidden">
+        <code> 
+  .example__1 {
+    position: relative;
+    overflow: hidden;
+    background-color: whitesmoke;
+    border:2px solid #f1404b;
+    border-radius: 4px;
+  }
+        </code>
+      </pre>
+    </div>
+
+    <div class="example1__content">
+      <span class="examples__content">Basic barrage animation with comment nodes.</span>
+      <div class="examples__box">
+        <div class="example__2"></div>
+      </div>
+  
+      <div class="examples__bar">
+        <button class="example2__js__btn button but__style1" id="button-5">
+          <div id="translate"></div>
+          <span>JS</span>
+        </button>
+        <button class="example2__html__btn button but__style2" id="button-5">
+          <div id="translate"></div>
+          <span>HTML</span>
+        </button>
+        <button class="example2__css__btn button but__style3" id="button-5">
+          <div id="translate"></div>
+          <span>CSS</span>
+        </button>
+      </div>
+  
+      <pre class="examples__box example2__js">
+        <code>
+  var displayRegion = document.querySelector('.example__2');
+  displayRegion.style.height = '200px';
+  displayRegion.style.width = '800px';
+  
+  var myBarrageStructure = {
+    poolNum: 5,
+    channelNum: 10,
+    sentDelay: 2,
+    recurrence: {
+      recur: true,
+      delay: 7
+    },
+    comment: {
+      height: 30,
+      width: 100,
+      size: 18,
+      color: 'black',
+      hover: false
+    },
+    animation: {
+      ani: null,
+      dir: null,
+      random: false
+    }
+  }
+  
+  var barrage = new Barrage(displayRegion, myBarrageStructure)
+
+  // Cutomized comment node with blue backgroundColor and solid border
+  const com_node = document.createElement('div');
+  com_node.className = 'cosCom__wrapper';
+  com_node.style['background-color'] = 'cornflowerblue';
+  const com_span = document.createElement('span');
+  com_span.innerText = 'I like this library';
+  com_span.style['color'] = 'whiteSmoke';
+  com_node.appendChild(com_span);
+  barrage.addCommentNode(com_node);
+  
+  // Cutomized comment node with simple div wrapper but a unique color
+  const com_node2 = document.createElement('div');
+  const com_span2 = document.createElement('span');
+  com_span2.innerText = 'comment text with comtomized color and size';
+  com_span2.style['color'] = 'red';
+  com_node2.appendChild(com_span2);
+  barrage.addCommentNode(com_node2);
+
+  // Comment texts
+  barrage.addCommentText('CSC309 is very fun!');
+  barrage.addCommentText('CSC309 is not fun!');
+  barrage.addCommentText('CSC309 is interesting!');
+  barrage.addCommentText('CSC309 is awful!');
+        </code>
+      </pre>
+  
+      <pre class="examples__box example2__html hidden">
+        <code> 
+  &lt;div class="example__2"&gt;&lt;/div&gt;
+        </code>
+      </pre>
+  
+      <pre class="examples__box example2__css hidden">
+        <code> 
+  .example__2 {
+    position: relative;
+    overflow: hidden;
+    background-color: whitesmoke;
+    border:2px solid #f1404b;
+    border-radius: 4px;
+  }
+
+  .cosCom__wrapper {
+    border:1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+  
+    width:fit-content; 
+    width:-webkit-fit-content; 
+    width:-moz-fit-content;
+  
+    height:fit-content; 
+    height:-webkit-fit-content; 
+    height:-moz-fit-content;
+  }
+        </code>
+      </pre>
+    </div>
+
+    <span class="examples__subtitle">Complex barrage animation</span>
+    <div class="example1__content">
+      <span class="examples__content">Complex barrage animation with different directions and animations.</span>
+      <span class="examples__description">
+        <strong>Animation</strong> and <strong>direction</strong> is setted before 
+        initializing Barrage, these two properties cannot be change afterwards. 
+        You can use <span class="examples__code">terminateBarrage()</span> to 
+        terminate the current barrage, and change <strong>animation</strong> and 
+        <strong>direction</strong> to restart.
+      </span>
+      <span class="examples__description">
+        Note: Set the <strong>height</strong> and <strong>width</strong> of 
+        comment properly while changing the <strong>animation</strong> and 
+        <strong>direction</strong>.
+      </span>
+      <div class="examples__box">
+        <div class="example__3"></div>
+      </div>
+
+      <div>
+        <span>Animations: </span>
+        <select class="example3__ani">
+          <option value="pop-in">pop-in</option>
+          <option value="quadratic">quadratic</option>
+          <option value="ease-in-quart">ease-in-quart</option>
+          <option value="ease-in-cubic">ease-in-cubic</option>
+          <option value="linear">linear</option>
+        </select>
+  
+        <span>Directions: </span>
+        <select class="example3__dir">
+          <option value="bottom">bottom</option>
+          <option value="top">top</option>
+          <option value="left">left</option>
+          <option value="right">right</option>
+        </select>
+
+        <span>Random Start Position: </span>
+        <select class="example3__rand">
+          <option value="true">yes</option>
+          <option value="false">no</option>
+        </select>
+
+        <button class="example3__restart__btn">
+          <span>Restart</span>
+        </button>
+      </div>
+  
+      <div class="examples__bar">
+        <button class="example3__js__btn button but__style1" id="button-5">
+          <div id="translate"></div>
+          <span>JS</span>
+        </button>
+        <button class="example3__html__btn button but__style2" id="button-5">
+          <div id="translate"></div>
+          <span>HTML</span>
+        </button>
+        <button class="example3__css__btn button but__style3" id="button-5">
+          <div id="translate"></div>
+          <span>CSS</span>
+        </button>
+      </div>
+  
+      <pre class="examples__box example3__js">
+        <code>
+  var displayRegion = document.querySelector('.example__3');
+  displayRegion.style.height = '500px';
+  displayRegion.style.width = '800px';
+  
+  var myBarrageStructure = {
+    poolNum: 4,
+    channelNum: 4,
+    sentDelay: 2,
+    recurrence: {
+      recur: true,
+      delay: 7
+    },
+    comment: {
+      height: 30,
+      width: 100,
+      size: 18,
+      color: 'black',
+      hover: false
+    },
+    animation: {
+      ani: 'pop-in',
+      dir: 'bottom',
+      random: true
+    }
+  }
+  
+  var barrage = new Barrage(displayRegion, myBarrageStructure)
+
+  // Comment texts
+  var commentTexts = ['Comment 1!', 'Comment 2!', 'Comment 3!', 'Comment 4!', 
+  'Comment 5!', 'Comment 6!', 'Comment 7!', 'Comment 8!', 'Comment 9!', 'Comment 10!']
+  
+  barrage.addAllCommentText(commentTexts)
+        </code>
+      </pre>
+  
+      <pre class="examples__box example3__html hidden">
+        <code> 
+  &lt;div class="example__3"&gt;&lt;/div&gt;
+        </code>
+      </pre>
+  
+      <pre class="examples__box example3__css hidden">
+        <code> 
+  .example__3 {
+    position: relative;
+    overflow: hidden;
+    background-color: whitesmoke;
+    border:2px solid #f1404b;
+    border-radius: 4px;
+  }
+        </code>
+      </pre>
+    </div>
+
+    <div class="example1__content">
+      <span class="examples__content">Complex barrage animation with hover effect.</span>
+      <span class="examples__description">
+        <strong>Hover</strong> is setted before initializing Barrage, this property cannot 
+        be change afterwards. You can use 
+        <span class="examples__code">terminateBarrage()</span> to 
+        terminate the current barrage, and change <strong>hover</strong> to restart.
+      </span>
+      <div class="examples__box">
+        <div class="example__4"></div>
+      </div>
+  
+      <div class="examples__bar">
+        <button class="example4__js__btn button but__style1" id="button-5">
+          <div id="translate"></div>
+          <span>JS</span>
+        </button>
+        <button class="example4__html__btn button but__style2" id="button-5">
+          <div id="translate"></div>
+          <span>HTML</span>
+        </button>
+        <button class="example4__css__btn button but__style3" id="button-5">
+          <div id="translate"></div>
+          <span>CSS</span>
+        </button>
+      </div>
+  
+      <pre class="examples__box example4__js">
+        <code>
+  var displayRegion = document.querySelector('.example__4');
+  displayRegion.style.height = '500px';
+  displayRegion.style.width = '800px';
+  
+  var myBarrageStructure = {
+    poolNum: 4,
+    channelNum: 4,
+    sentDelay: 2,
+    recurrence: {
+      recur: true,
+      delay: 7
+    },
+    comment: {
+      height: 30,
+      width: 100,
+      size: 18,
+      color: 'black',
+      hover: true
+    },
+    animation: {
+      ani: 'pop-in',
+      dir: 'top',
+      random: true
+    }
+  }
+  
+  var barrage = new Barrage(displayRegion, myBarrageStructure)
+
+  // Comment texts
+  var commentTexts = ['Comment 1!', 'Comment 2!', 'Comment 3!', 'Comment 4!', 
+  'Comment 5!', 'Comment 6!', 'Comment 7!', 'Comment 8!', 'Comment 9!', 'Comment 10!']
+  
+  barrage.addAllCommentText(commentTexts)
+        </code>
+      </pre>
+  
+      <pre class="examples__box example4__html hidden">
+        <code> 
+  &lt;div class="example__4"&gt;&lt;/div&gt;
+        </code>
+      </pre>
+  
+      <pre class="examples__box example4__css hidden">
+        <code> 
+  .example__4 {
+    position: relative;
+    overflow: hidden;
+    background-color: whitesmoke;
+    border:2px solid #f1404b;
+    border-radius: 4px;
+  }
+        </code>
+      </pre>
+    </div>
+  </div>
+
+  <div class="copyright">
+    Designed by <span>Jiakai Shi</span> @ 2020
+  </div>
+
+  <script type="text/javascript" src="Barrage.js"></script>
+  <script defer type="text/javascript" src="examples.js"></script>
+ </body>
+</html>

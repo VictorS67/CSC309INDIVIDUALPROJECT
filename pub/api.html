@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Barrage</title>
+    <link rel="stylesheet" type="text/css" href="examples_style.css">
+ </head>
+
+ <body>
+
+  <h1 class="header">
+    <span class="title">Barrage.js</span>
+    <span class="subtitle">--A User-friendly Tool for Designing WebApps</span>
+  </h1>
+
+  <p class="description">
+    <span class="description__title">Hi, this is the library for creating "Barrage".</span>
+  </p>
+
+  <div class="comment__box">
+    <div class="comment__wrapper"></div>
+  </div>
+  
+  <div class="message__box">
+    <input type="text" class="input__text" placeholder="write your comment here">
+    <button class="button but__style4" id="button-2">
+      <div id="slide"></div>
+      <span>Submit</span>
+    </button>
+  </div>
+
+  <div class="navigation__bar">
+    <button class="intro__btn button but__style1" id="button-5">
+      <div id="translate"></div>
+      <span>Intro</span>
+    </button>
+    <button class="example__btn button but__style2" id="button-5">
+      <div id="translate"></div>
+      <span>Examples</span>
+    </button>
+    <button class="tool__btn button but__style3" id="button-5">
+      <div id="translate"></div>
+      <span>Tool</span>
+    </button>
+    <button class="api__btn button but__style4__complete" id="button-5">
+      <span>APIs</span>
+    </button>
+  </div>
+
+  <div class="api__content">
+    <div class="table-title">
+      <h3>APIs</h3>
+
+      <span class="api__title">Initializing Barrage (JS & HTML & CSS)</span>
+      <pre class="api__box">
+        <code class="apiEx__box">
+  var displayRegion = document.querySelector('.display__region');
+  displayRegion.style.height = '200px';
+  displayRegion.style.width = '800px';
+
+  var structure = {
+    poolNum: 5,
+    channelNum: 10,
+    sentDelay: 2,
+    recurrence: {
+      recur: true,
+      delay: 7
+    },
+    comment: {
+      height: 40,
+      width: 100,
+      size: 14,
+      color: 'black',
+      hover: true
+    },
+    animation: {
+      ani: null,
+      dir: null,
+      random: false
+    }
+  }
+
+  var barrage = new Barrage(displayRegion, structure)
+        </code>
+      </pre>
+      <pre class="api__box">
+        <code class="apiEx__box">
+  &lt;div class="display__region"&gt;&lt;/div&gt;
+        </code>
+      </pre>
+
+      <pre class="api__box">
+        <code class="apiEx__box">
+  .display__region {
+    position: relative;
+    overflow: hidden;
+  }
+        </code>
+      </pre>
+      <span class="api__title">Global Variables in Barrage</span>
+    </div>
+    <table class="table-fill">
+      <thead>
+        <tr>
+          <th class="text-left">Property</th>
+          <th class="text-left">Default</th>
+          <th class="text-left">Type</th>
+          <th class="text-left">Description</th>
+        </tr>
+      </thead>
+      <tbody class="table-hover">
+        <tr>
+          <td class="text-left">displayRegion</td>
+          <td class="text-left">/</td>
+          <td class="text-left">Object</td>
+          <td class="text-left">The DOM element for displaying Barrage. 
+            Need to set <span class="examples__code">height</span> and <span class="examples__code">width</span> of the displayRegion before initializing Barrage.
+            Note: <span class="examples__code">displayRegion</span> is not in the initial Barrage structure.
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left">commentHeight</td>
+          <td class="text-left">40</td>
+          <td class="text-left">Int</td>
+          <td class="text-left">The number of pixels of the height for the global comment texts. 
+            Set <strong>fixed</strong> when initializing Barrage, need to restart Barrage whenever want to change it.
+            For the initial Barrage structure, set <span class="examples__code">structure.comment.height</span> for your Barrage.
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left">commentWidth</td>
+          <td class="text-left">100</td>
+          <td class="text-left">Int</td>
+          <td class="text-left">The number of pixels of the width for the global comment texts. 
+            Set <strong>fixed</strong> when initializing Barrage, need to restart Barrage whenever want to change it.
+            For the initial Barrage structure, set <span class="examples__code">structure.comment.width</span> for your Barrage.
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left">commentSize</td>
+          <td class="text-left">14</td>
+          <td class="text-left">Int</td>
+          <td class="text-left">The font size for the global comment texts. 
+            Can be changed after initializing Barrage. Minimum: 10px.
+            For the initial Barrage structure, set <span class="examples__code">structure.comment.size</span> for your Barrage.
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left">commentColor</td>
+          <td class="text-left">'black'</td>
+          <td class="text-left">HEX code or String</td>
+          <td class="text-left">The color for the global comment texts. 
+            Can be changed after initializing Barrage. Make sure your color is valid, otherwise no effect.
+            For the initial Barrage structure, set <span class="examples__code">structure.comment.color</span> for your Barrage.
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left">hover</td>
+          <td class="text-left">true</td>
+          <td class="text-left">Boolean</td>
+          <td class="text-left">The hover effect for the global comment texts & nodes. 
+            Set <strong>fixed</strong> when initializing Barrage, need to restart Barrage whenever want to change it.
+            For the initial Barrage structure, set <span class="examples__code">structure.comment.hover</span> for your Barrage.
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left">poolNum</td>
+          <td class="text-left">5</td>
+          <td class="text-left">Int</td>
+          <td class="text-left">The maximum number of comments in one row of Barrage. 
+            Can be changed after initializing Barrage. Minimum: 1, Maximum: 7.
+            For the initial Barrage structure, set <span class="examples__code">structure.poolNum</span> for your Barrage.
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left">channelNum</td>
+          <td class="text-left">maxmimum rows / columns of comments in Barrage</td>
+          <td class="text-left">Int</td>
+          <td class="text-left">The maximum number of rows of your Barrage.
+            Can be changed after initializing Barrage. Minimum: 5, Maximum: maxmimum rows / columns of comments in Barrage.
+            For the initial Barrage structure, set <span class="examples__code">structure.channelNum</span> for your Barrage.
+          </td>
+        </tr>
+        <td class="text-left">sentDelay</td>
+        <td class="text-left">2</td>
+        <td class="text-left">Int</td>
+        <td class="text-left">A factor you want to delay your comment to be sent out.
+          Can be changed after initializing Barrage. Minimum: 2, Maximum: 20.
+          For the initial Barrage structure, set <span class="examples__code">structure.sentDelay</span> for your Barrage.
+        </td>
+      </tr>
+        <tr>
+          <td class="text-left">recur</td>
+          <td class="text-left">true</td>
+          <td class="text-left">Boolean</td>
+          <td class="text-left">Whether you want your comment to be sent repeatedly, the barrage only sent a comment once if "recurStatus" is "false".
+            Can be changed after initializing Barrage.
+            For the initial Barrage structure, set <span class="examples__code">structure.recurrence.recur</span> for your Barrage.
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left">recurDelay</td>
+          <td class="text-left">7</td>
+          <td class="text-left">Int</td>
+          <td class="text-left">Number of seconds you want to your comment to complete the transition on your display region.
+            Can be changed after initializing Barrage. Minimum: 1, Maximum: 10.
+            For the initial Barrage structure, set <span class="examples__code">structure.recurrence.delay</span> for your Barrage.
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left">animation</td>
+          <td class="text-left">'linear'</td>
+          <td class="text-left">String</td>
+          <td class="text-left">Animation for global comment texts & nodes. Current available animations: 
+            <span class="examples__code">'pop-in'</span>, <span class="examples__code">'quadratic'</span>, 
+            <span class="examples__code">'ease-in-quart'</span>, <span class="examples__code">'ease-in-cubic'</span>, <span class="examples__code">'linear'</span>.
+            Make sure your animation is valid, otherwise will change to <span class="examples__code">'linear'</span>.
+            Set <strong>fixed</strong> when initializing Barrage, need to restart Barrage whenever want to change it.
+            For the initial Barrage structure, set <span class="examples__code">structure.animation.ani</span> for your Barrage.
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left">direction</td>
+          <td class="text-left">'right'</td>
+          <td class="text-left">String</td>
+          <td class="text-left">Moving Direction for global comment texts & nodes. Current available directions: 
+            <span class="examples__code">'top'</span>, <span class="examples__code">'bottom'</span>, 
+            <span class="examples__code">'left'</span>, <span class="examples__code">'right'</span>.
+            For example, if choosing <span class="examples__code">'right'</span>, then comments will move from <strong>right</strong> to <strong>left</strong>.
+            Make sure your direction is valid, otherwise will change to <span class="examples__code">'right'</span>.
+            Set <strong>fixed</strong> when initializing Barrage, need to restart Barrage whenever want to change it.
+            For the initial Barrage structure, set <span class="examples__code">structure.animation.dir</span> for your Barrage.
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left">rand</td>
+          <td class="text-left">false</td>
+          <td class="text-left">Boolean</td>
+          <td class="text-left">Randoms start position for global comment texts & nodes. 
+            Only for <span class="examples__code">'top'</span>, <span class="examples__code">'bottom'</span> directions.
+            Set <strong>fixed</strong> when initializing Barrage, need to restart Barrage whenever want to change it.
+            For the initial Barrage structure, set <span class="examples__code">structure.animation.random</span> for your Barrage.
+          </td>
+        </tr>
+      </tbody>
+     </table>
+
+    <div class="api__gap"></div>
+
+    <div class="table-title">
+      <span class="api__title">Methods in Barrage</span>
+
+      <pre class="api__box">
+        <code class="apiEx__box">
+  // Change poolNum for Barrage, make sure poolNum type is Int. 
+  // Minimum: 1, Maximum: 7.
+  barrage.setPoolNum(poolNum)
+
+  // Change channelNum for Barrage, make sure channelNum type is Int. 
+  // Minimum: 5, Maximum: maxmimum rows / columns of comments in Barrage.
+  barrage.setChannelNum(channelNum)
+
+  // Change sentDelay for Barrage, make sure sentDelay type is Int. 
+  // Minimum: 2, Maximum: 20.
+  barrage.setSentDelay(sentDelay)
+
+  // Change recur for Barrage, make sure recur type is Boolean.
+  barrage.setRecur(recur)
+
+  // Change recurDelay for Barrage, make sure recurDelay type is Int. 
+  // Minimum: 1, Maximum: 10.
+  barrage.setRecurDelay(recurDelay)
+
+  // Change commentSize and/or commentColor for Barrage. 
+  // Make sure commentSize type is Int, commentColor is valid. 
+  // Minimum for commentSize: 10.
+  barrage.setComment(commentSize, commentColor)
+
+  // Add comment text to Barrage, make sure commentText type is String.
+  barrage.addCommentText(commentText)
+
+  // Add all comment texts in commentTexts array to Barrage. 
+  // Make sure comment in commentTexts array have type String.
+  barrage.addAllCommentText(commentTexts)
+
+  // Add comment node to Barrage, make sure commentNode type is DOM Object.
+  barrage.addCommentNode(commentNode)
+
+  // Add all comment nodes in commentNodes array to Barrage. 
+  // Make sure comment node in commentNodes array have type DOM Object.
+  barrage.addAllCommentNode(commentNodes)
+
+  // Terminate Barrage, your cannot activate Barrage again after terminate it.
+  barrage.terminateBarrage()
+        </code>
+      </pre>
+    </div>
+  </div>
+
+  <div class="copyright">
+    Designed by <span>Jiakai Shi</span> @ 2020
+  </div>
+
+  <script type="text/javascript" src="Barrage.js"></script>
+  <script defer type="text/javascript" src="api.js"></script>
+ </body>
+</html>
